@@ -13,12 +13,13 @@ def quitApp():
     sys.exit()
 
 
+window = None
+
+
 def startApp():
-    smallApp = QApplication([])
+    global window
     window = MainWindow()
     window.show()
-    smallApp.processEvents()
-    smallApp.exec_()
 
 
 if __name__ == '__main__':
