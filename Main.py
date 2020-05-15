@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from Widgets import MainWindow
+import asyncio
 
 
 def quitApp():
@@ -17,7 +18,7 @@ def startApp():
     window.show()
 
 
-if __name__ == '__main__':
+async def main():
     app = QApplication(sys.argv)
     app.setQuitOnLastWindowClosed(False)
 
@@ -42,3 +43,7 @@ if __name__ == '__main__':
 
     tray.setContextMenu(menu)
     app.exec_()
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
