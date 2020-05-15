@@ -1,36 +1,7 @@
 import sys
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-import json
-
-
-class MainWindow(QMainWindow):
-    def __init__(self, *args, **kwargs):
-        super(MainWindow, self).__init__(*args, **kwargs)
-        with open('user.json') as file:
-            data = json.load(file)
-            self.isLogin = data['isLogin']
-        self.setGeometry(200, 200, 600, 400)
-        self.setWindowTitle('Attendance')
-
-        self.toolbar = QToolBar('My Main Toolbar')
-        self.addToolBar(self.toolbar)
-
-        self.login_action = QAction('Login', self)
-        self.login_action.triggered.connect(self._login)
-        self.logout_action = QAction('Logout', self)
-        self.logout_action.triggered.connect(self._logout)
-
-        if self.isLogin:
-            self.toolbar.addAction(self.logout_action)
-        else:
-            self.toolbar.addAction(self.login_action)
-
-    def _login(self):
-        print('Login')
-
-    def _logout(self):
-        print('Logout')
+from Widgets import MainWindow
 
 
 def quitApp():
