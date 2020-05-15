@@ -5,6 +5,7 @@ import json
 
 loginWindow = None
 
+
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -39,4 +40,26 @@ class MainWindow(QMainWindow):
 class LoginWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(LoginWindow, self).__init__(*args, **kwargs)
-        self.setGeometry(220, 220, 200, 200)
+        self.setGeometry(220, 220, 400, 150)
+        self.setWindowTitle('Login')
+
+        self.mainLabel = QLabel('Login With your CUIMS account')
+        self.username = QLineEdit()
+        self.password = QLineEdit()
+        self.login_btn = QPushButton('Login')
+        self.login_btn.clicked.connect(self._login)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.mainLabel)
+        layout.addWidget(self.username)
+        layout.addWidget(self.password)
+        layout.addWidget(self.login_btn)
+        widget = QWidget()
+        widget.setLayout(layout)
+
+        self.setCentralWidget(widget)
+
+    def _login(self):
+        username = self.username.text()
+        password = self.password.text()
+        print(username,password)
