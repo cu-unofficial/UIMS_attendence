@@ -1,9 +1,10 @@
-import sys
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *
 import json
+
+from PyQt5.QtCore import QThread
+from PyQt5.QtWidgets import *
+
 from data import Database
-import asyncio
+import time
 
 loginWindow = None
 
@@ -49,22 +50,19 @@ class LoginWindow(QMainWindow):
         self.username = QLineEdit()
         self.password = QLineEdit()
         self.login_btn = QPushButton('Login')
-        self.login_btn.clicked.connect(lambda x: asyncio.run(self._login()))
+        self.login_btn.clicked.connect(self._login)
 
-        layout = QVBoxLayout()
-        layout.addWidget(self.mainLabel)
-        layout.addWidget(self.username)
-        layout.addWidget(self.password)
-        layout.addWidget(self.login_btn)
-        widget = QWidget()
-        widget.setLayout(layout)
+        self.layout = QVBoxLayout()
+        self.layout.addWidget(self.mainLabel)
+        self.layout.addWidget(self.username)
+        self.layout.addWidget(self.password)
+        self.layout.addWidget(self.login_btn)
+        self.widget = QWidget()
+        self.widget.setLayout(self.layout)
 
-        self.setCentralWidget(widget)
+        self.setCentralWidget(self.widget)
 
-    async def _login(self):
+    def _login(self):
         username = self.username.text()
         password = self.password.text()
-        database = Database()
-        await database.signup(username=username, password=password)
-        with open('user.json') as file:
-            json.dump({"isLogin": False}, file)
+        print(username, password)
