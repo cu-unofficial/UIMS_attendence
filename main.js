@@ -21,7 +21,10 @@ app.on('ready',()=> {
     appIcon.setContextMenu(contextMenu)
     appIcon.on('click',()=>{
         let mainWindow = new BrowserWindow({
-            show: true
+            show: true,
+            webPreferences: {
+                preload: './src/js/index.js'
+            }
         })
 
         mainWindow.loadFile(path.join(__dirname,'src','views','index.html'))
