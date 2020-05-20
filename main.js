@@ -23,11 +23,12 @@ app.on('ready',()=> {
         let mainWindow = new BrowserWindow({
             show: true,
             webPreferences: {
-                preload: 'window.js'
+                nodeIntegration: true
             }
         })
 
-        mainWindow.loadFile(path.join(__dirname,'index.html'))
+        mainWindow.loadFile('./index.html')
+        mainWindow.webContents.openDevTools()
         const customMenu = Menu.buildFromTemplate([
             {label: 'Login',type: "normal", click: () => {
                 console.log('Login Process')

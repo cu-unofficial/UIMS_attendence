@@ -1,10 +1,16 @@
-from .uims_api import SessionUIMS
+from uims_api import SessionUIMS
+import sys
+
+args = sys.argv()
+
+print(args)
+
+my_account = SessionUIMS(args[1], args[2])
 
 
-def getAttendence(uid, password):
-    account = SessionUIMS(uid,password)
-    subjects = account.attendance
+subjects = my_account.attendance
 
-    for subject in subjects:
-        subject_attendence ="{} - {}%".format(subject["Title"], subject["TotalPercentage"])
-        print(subject_attendence)
+
+for subject in subjects:
+    subject_attendance = "{} - {}%".format(subject["Title"], subject["TotalPercentage"])
+    print(subject_attendance)
