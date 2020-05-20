@@ -24,11 +24,14 @@ app.on('ready',()=> {
             show: true,
             webPreferences: {
                 nodeIntegration: true
-            }
+            },
+            width: 400,
+            height: 500,
+            resizable: false
         })
 
         mainWindow.loadFile('./index.html')
-        mainWindow.webContents.openDevTools()
+        // mainWindow.webContents.openDevTools()
         const customMenu = Menu.buildFromTemplate([
             {label: 'Login',type: "normal", click: () => {
                 console.log('Login Process')
