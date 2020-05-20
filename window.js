@@ -1,8 +1,13 @@
 const {spawn} = require('child_process')
+const fs = require('fs')
 
-const sub = spawn('python', ["./backend/main.py", 'username', 'password'])
+console.log('Running python')
+const sub = spawn('python', ["./backend/main.py", "uid", "password"])
 
 sub.stdout.on('data', (data) => {
-    console.log(data.toString())
-    document.getElementById('att').innerText = data.toString()
+    let res = data.toString()
+    let result = JSON.parse(res)
+    for(let key in result){
+        document.getElementById('att').innerText = `${key}  ---  ${result[key]}`
+    }
 })
