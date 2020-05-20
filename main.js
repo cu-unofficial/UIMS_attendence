@@ -23,11 +23,11 @@ app.on('ready',()=> {
         let mainWindow = new BrowserWindow({
             show: true,
             webPreferences: {
-                preload: './src/js/index.js'
+                preload: 'window.js'
             }
         })
 
-        mainWindow.loadFile(path.join(__dirname,'src','views','index.html'))
+        mainWindow.loadFile(path.join(__dirname,'index.html'))
         const customMenu = Menu.buildFromTemplate([
             {label: 'Login',type: "normal", click: () => {
                 console.log('Login Process')
@@ -36,3 +36,5 @@ app.on('ready',()=> {
         Menu.setApplicationMenu(customMenu)
     })
 })
+
+app.allowRendererProcessReuse = true
