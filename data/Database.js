@@ -28,7 +28,7 @@ class Database {
             cred.password = password
             cred.saved = true
 
-            fs.writeFile(this.filePath, cred, (error) => {
+            fs.writeFile(this.filePath, JSON.stringify(cred), (error) => {
                 if (error) {
                     throw error
                 }
@@ -48,6 +48,6 @@ class Database {
     }
 }
 
-export default {
+module.exports = {
     Database
 }
