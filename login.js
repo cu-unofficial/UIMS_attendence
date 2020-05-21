@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+
+
 document.getElementById('save').addEventListener('click',()=>{
     let uid = document.getElementById('uid').value
     let password = document.getElementById('password').value
