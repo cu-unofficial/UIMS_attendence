@@ -1,7 +1,7 @@
 const {spawn} = require('child_process')
 const fs = require('fs')
 
-const sub = spawn('python', ["./backend/main.py", "", "ithu"])
+const sub = spawn('python', ["./backend/main.py", "uid", "password"])
 
 function generateTable(table, data) {
     let thead = table.createTHead();
