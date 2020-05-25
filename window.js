@@ -52,6 +52,6 @@ function generateTable(table, data) {
 
 }
 
-ipcRenderer.on('update-attendance', (event, args) => {
-    alert(args.uid)
-})
+// ipcRenderer.on('update-attendance', (event, args) => {
+//     alert(args.uid)
+// })
