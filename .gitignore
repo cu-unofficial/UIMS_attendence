@@ -1,3 +1,5 @@
 node_modules
 package-lock.json
 .idea
+windows_installer
+OurCodeWorld-win32-x64

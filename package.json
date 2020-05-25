@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^8.3.0"
+    "electron": "^8.3.0",
+    "electron-wix-msi": "^2.2.0"
   },
   "dependencies": {
+    "electron-titlebar": "0.0.3",
     "python-shell": "^2.0.0"
   }
 }

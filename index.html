@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        *{
+            background-color: #1b262c;
+            color: #ffaaa5;
+        }
+    </style>
     <title>Attendance</title>
 </head>
 <body>
-    <div class="container">
+<div>
+    <div id="electron-titlebar" platform="linux" class="drag no-maximize no-minimize inset"></div>
+    </div>
+    <div class="container" style="padding-top: 40px;">
         <div id="att" style="padding: 12px;" >loading..</div>
     </div>
     <script src="./window.js"></script>

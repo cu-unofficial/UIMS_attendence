@@ -2,7 +2,7 @@ const {app, Tray, Menu, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 const {Database} = require('./data/Database')
 
-const database = new Database()
+const database = new Database({filePath: path.join(__dirname,'cred.json')})
 
 const iconpath = path.join(__dirname, 'ninja.png')
 let appIcon = null
@@ -38,15 +38,17 @@ app.on('ready', () => {
             },
             width: 400,
             height: 500,
-            resizable: false
+            resizable: false,
+            autoHideMenuBar: true,
+            frame: false
         })
 
         mainWindow.loadFile(path.join(__dirname, 'index.html'))
-        // mainWindow.webContents.openDevTools()
         const customMenu = Menu.buildFromTemplate([
             {
-                label: 'Save your credentials', type: "normal", click: () => {
-                    createLoginWindow()
+                label: 'Exit',
+                click: () => {
+                    process.exit(0)
                 }
             }
         ])

@@ -1,11 +1,13 @@
 const {spawn} = require('child_process')
 const fs = require('fs')
 const {ipcRenderer} = require('electron')
+const electronTitleBar = require('electron-titlebar')
+const path = require('path')
 
 let sub = null
 
 function onStart() {
-    fs.readFile('./cred.json', 'utf8', (err, res) => {
+    fs.readFile(`${path.join(__dirname,'cred.json')}`, 'utf8', (err, res) => {
         if (err) {
             document.getElementById('att').innerText = "We don't have your credentials, save them first"
         }

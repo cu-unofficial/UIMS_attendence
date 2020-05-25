@@ -1,8 +1,8 @@
 const fs = require('fs')
 
 class Database {
-    constructor() {
-        this.filePath = "./cred.json"
+    constructor({filePath}) {
+        this.filePath = filePath
     }
 
     isSaved() {
